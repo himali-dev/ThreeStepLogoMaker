@@ -1,0 +1,17 @@
+{
+  "name": "ThreeStepLogoMaker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/himali-dev/ThreeStepLogoMaker.git"
+  },
+  "author": "",
+  "dependencies": {
+    "inquirer": "^8.2.5"
+  }
+}

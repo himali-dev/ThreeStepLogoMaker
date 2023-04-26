@@ -1,5 +1,7 @@
+const filesystem = require('./node_modules/graceful-fs/graceful-fs')
 // initialized inquirer module for questions
 const inquirer = require("inquirer");
+const {Circle, Square, Triangle} = require("./ref/shapes");
 // logo class with constructor
 class Logo{
   constructor(){
@@ -48,7 +50,7 @@ const questions = [
 // write data to svg file
 function writeLogo(fileName, data) {
 	console.log("Writing [" + data + "] to file [" + fileName + "]")
-    filesystem.writeLogo(fileName, data, function (err) {
+    filesystem.writeFile(fileName, data, function (err) {
         if (err) {
             return console.log(err);
         }
@@ -82,7 +84,7 @@ logo_text_color = answers["text-color"];
 
 
 	//logo shape color
-	logo_shape_color = answers.shape-color;
+	logo_shape_color = answers["shape-color"];
 	console.log("Logo shape color: [" + logo_shape_color + "]");
 
 
@@ -106,7 +108,7 @@ logo_text_color = answers["text-color"];
 	else {
 		console.log("You selected Invalid shape!");
 	}
-	shape.setColor(logo_shape);
+	shape.setColor(logo_shape_color);
 
 	// instance creation for logo class
 	var logo = new Logo();
@@ -117,6 +119,6 @@ logo_text_color = answers["text-color"];
 
 	console.log("Displaying shape:\n\n" + svgString);
 
-	writeToFile(svg_file, svgString);
+	writeLogo(svg_file, svgString);
 }
 init()
