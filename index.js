@@ -33,12 +33,12 @@ const questions = [
   },
   {
       type: "input",
-      name: "shape",
+      name: "shape-color",
       message: "Enter the color of the shape:",
   },
   {
       type: "list",
-      name: "image",
+      name: "shape",
       message: "Which shape would you like for your logo?",
       choices: ["Triangle", "Square", "Circle"],
   },
@@ -75,3 +75,48 @@ const answers = await inquirer.prompt(questions);
         return;
 	}
 	console.log("Logo text: [" + logo_text + "]");
+
+	//logo text color
+logo_text_color = answers["text-color"];
+	console.log("Logo Text color: [" + logo_text_color + "]");
+
+
+	//logo shape color
+	logo_shape_color = answers.shape-color;
+	console.log("Logo shape color: [" + logo_shape_color + "]");
+
+
+	//logo shape
+	logo_shape = answers["shape"];
+	console.log("Logo entered shape = [" + logo_shape + "]");
+
+	let shape;
+	if (logo_shape === "Square" || logo_shape === "square") {
+		shape = new Square();
+		console.log("You selected Square shape");
+	}
+	else if (logo_shape === "Circle" || logo_shape === "circle") {
+		shape = new Circle();
+		console.log("You selected Circle shape");
+	}
+	else if (logo_shape === "Triangle" || logo_shape === "triangle") {
+		shape = new Triangle();
+		console.log("You selected Triangle shape");
+	}
+	else {
+		console.log("You selected Invalid shape!");
+	}
+	shape.setColor(logo_shape);
+
+	// instance creation for logo class
+	var logo = new Logo();
+	logo.setTextElement(logo_text, logo_text_color);
+	logo.setShapeElement(shape);
+	svgString = logo.render();
+
+
+	console.log("Displaying shape:\n\n" + svgString);
+
+	writeToFile(svg_file, svgString);
+}
+init()
