@@ -1,3 +1,5 @@
+// initialized inquirer module for questions
+const inquirer = require("inquirer");
 // Array of questions is created in order to make the logo in 3 steps
 const questions = [
   {
