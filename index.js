@@ -1,5 +1,24 @@
 // initialized inquirer module for questions
 const inquirer = require("inquirer");
+// logo class with constructor
+class Logo{
+  constructor(){
+      this.textElement = ''
+      this.shapeElement = ''
+  }
+  render(){
+
+      return `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="600" height="400">${this.shapeElement}${this.textElement}</svg>`
+  }
+  setTextElement(text,color){
+      this.textElement = `<text x="300" y="150" font-size="120" text-anchor="middle" fill="${color}">${text}</text>`
+  }
+  setShapeElement(shape){
+      this.shapeElement = shape.render()
+
+  }
+
+}
 // Array of questions is created in order to make the logo in 3 steps
 const questions = [
   {
