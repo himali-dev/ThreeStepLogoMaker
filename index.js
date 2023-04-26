@@ -13,7 +13,7 @@ class Logo{
       return `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="600" height="400">${this.shapeElement}${this.textElement}</svg>`
   }
   setTextElement(text,color){
-      this.textElement = `<text x="300" y="150" font-size="120" text-anchor="middle" fill="${color}">${text}</text>`
+      this.textElement = `<text x="300" y="250" font-size="120" text-anchor="middle" fill="${color}">${text}</text>`
   }
   setShapeElement(shape){
       this.shapeElement = shape.render()
