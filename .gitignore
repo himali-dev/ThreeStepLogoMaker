@@ -1,6 +1,6 @@
 # Indicates which folders and files Git should ignore
-# dist/
+dist/
 .DS_Store
 DS_Store
-# .node_modules
-# node_modules
+.node_modules
+node_modules
