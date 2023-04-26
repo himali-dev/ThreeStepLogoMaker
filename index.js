@@ -23,7 +23,7 @@ class Logo{
 const questions = [
   {
       type: "input",
-      name: "text",
+      name: "logoText",
       message: "Enter the charaters of your logo (Max: 3 characters only)",
   },
   {
@@ -43,3 +43,35 @@ const questions = [
       choices: ["Triangle", "Square", "Circle"],
   },
 ];
+
+
+// write data to svg file
+function writeLogo(fileName, data) {
+	console.log("Writing [" + data + "] to file [" + fileName + "]")
+    filesystem.writeLogo(fileName, data, function (err) {
+        if (err) {
+            return console.log(err);
+        }
+        console.log("Hurray, you have Generated a logo.svg in just 3 steps!");
+    });
+}
+
+async function init() {
+    console.log("Starting init");
+	var svgString = "";
+	var svg_file = "logo.svg";
+
+// Capture answers
+const answers = await inquirer.prompt(questions);
+
+	//logo_text
+	var logo_text = "";
+	if (answers.logoText.length > 0 && answers.logoText.length < 4) {
+		// 1-3 chars, valid entry
+		logo_text = answers.logoText;
+	} else {
+		// 0 or 4+ chars, invalid entry
+		console.log("Please make sure to have text length of max 3 chars");
+        return;
+	}
+	console.log("Logo text: [" + logo_text + "]");
