@@ -1,1 +1,1 @@
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="600" height="400"><polygon height="100%" width="100%" points="0,400 600,400 300,0" fill="GREEN"/><text x="300" y="250" font-size="120" text-anchor="middle" fill="WHITE">SVG</text></svg>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="600" height="400"><polygon height="100%" width="100%" points="0,400 600,400 300,0" fill="GREEN"/><text x="300" y="250" font-size="120" text-anchor="middle" fill="RED">RDD</text></svg>
